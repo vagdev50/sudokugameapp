@@ -64,10 +64,10 @@ const ReferralPage: React.FC<ReferralPageProps> = ({ user, onBack }) => {
             <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-slate-100">
                 <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                        <div className="bg-indigo-600 p-1.5 rounded-lg text-white">
-                            <LayoutGrid size={20} />
+                        <div className="bg-white p-0.5 rounded-lg text-white shadow-sm overflow-hidden border border-slate-100 flex items-center justify-center">
+                            <img src="/favicon.png" alt="SudokuHub Logo" className="w-6 h-6 object-contain" />
                         </div>
-                        <span className="font-black text-xl tracking-tight text-slate-800 uppercase">SUDOKUZA.LIVE</span>
+                        <span className="font-black text-xl tracking-tight text-slate-800 uppercase">SUDOKUHUB.LIVE</span>
                     </div>
                     <button
                         onClick={onBack}
@@ -248,10 +248,10 @@ const ReferralPage: React.FC<ReferralPageProps> = ({ user, onBack }) => {
                                 <div
                                     key={i}
                                     className={`flex items-center justify-between p-4 rounded-xl border-2 transition-all ${isUnlocked
-                                            ? 'bg-emerald-50 border-emerald-200'
-                                            : isCurrent
-                                                ? 'bg-amber-50 border-amber-200'
-                                                : 'bg-slate-50 border-slate-100'
+                                        ? 'bg-emerald-50 border-emerald-200'
+                                        : isCurrent
+                                            ? 'bg-amber-50 border-amber-200'
+                                            : 'bg-slate-50 border-slate-100'
                                         }`}
                                 >
                                     <div className="flex items-center gap-3">

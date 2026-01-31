@@ -43,8 +43,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStart, onNavigate, onAdmin,
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             onDoubleClick={onAdmin}
           >
-            <div className="bg-indigo-600 p-1.5 rounded-lg text-white group-hover:scale-110 transition-transform">
-              <LayoutGrid size={20} />
+            <div className="bg-white p-0.5 rounded-lg text-white group-hover:scale-110 transition-transform shadow-sm overflow-hidden border border-slate-100 flex items-center justify-center">
+              <img src="/favicon.png" alt="SudokuHub Logo" className="w-6 h-6 object-contain" />
             </div>
             <span className="font-black text-xl tracking-tight text-slate-800 uppercase">{appName}</span>
           </div>
@@ -336,8 +336,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStart, onNavigate, onAdmin,
         <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-16">
           <div className="md:col-span-1">
             <div className="flex items-center gap-2 mb-6">
-              <div className="bg-indigo-600 p-1.5 rounded-lg text-white">
-                <LayoutGrid size={24} />
+              <div className="bg-white p-0.5 rounded-lg text-white shadow-sm overflow-hidden border border-slate-100 flex items-center justify-center">
+                <img src="/favicon.png" alt="SudokuHub Logo" className="w-8 h-8 object-contain" />
               </div>
               <span className="font-black text-2xl text-slate-800 tracking-tighter">{appName} PRO</span>
             </div>

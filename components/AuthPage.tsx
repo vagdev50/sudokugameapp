@@ -32,8 +32,8 @@ const AuthPage: React.FC<AuthPageProps> = ({ onLogin, onBack }) => {
 
       <div className="bg-white p-8 md:p-12 rounded-[3rem] shadow-2xl max-w-md w-full border border-slate-100 animate-in zoom-in duration-500">
         <div className="text-center mb-10">
-          <div className="bg-indigo-600 w-20 h-20 rounded-3xl flex items-center justify-center text-white mx-auto mb-8 shadow-2xl rotate-6">
-            <LayoutGrid size={40} />
+          <div className="bg-white w-20 h-20 rounded-3xl flex items-center justify-center text-white mx-auto mb-8 shadow-2xl rotate-6 overflow-hidden border border-slate-100">
+            <img src="/favicon.png" alt="SudokuHub Logo" className="w-16 h-16 object-contain" />
           </div>
           <h2 className="text-3xl font-black text-slate-800 mb-2 uppercase tracking-tight">{isLogin ? 'WELCOME BACK' : 'CREATE ACCOUNT'}</h2>
           <p className="text-slate-400 font-bold text-sm">{isLogin ? 'Login to continue your progress' : 'Sign up and get 50 free credits'}</p>
@@ -43,36 +43,36 @@ const AuthPage: React.FC<AuthPageProps> = ({ onLogin, onBack }) => {
           {!isLogin && (
             <div className="relative">
               <User className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-300" size={20} />
-              <input 
+              <input
                 required
-                type="text" 
-                placeholder="Username" 
+                type="text"
+                placeholder="Username"
                 className="w-full pl-14 pr-6 py-5 rounded-2xl border border-slate-200 focus:ring-4 focus:ring-indigo-50 focus:border-indigo-600 outline-none transition-all font-bold text-slate-700"
                 value={formData.name}
-                onChange={(e) => setFormData({...formData, name: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               />
             </div>
           )}
           <div className="relative">
             <Mail className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-300" size={20} />
-            <input 
+            <input
               required
-              type="email" 
-              placeholder="Email Address" 
+              type="email"
+              placeholder="Email Address"
               className="w-full pl-14 pr-6 py-5 rounded-2xl border border-slate-200 focus:ring-4 focus:ring-indigo-50 focus:border-indigo-600 outline-none transition-all font-bold text-slate-700"
               value={formData.email}
-              onChange={(e) => setFormData({...formData, email: e.target.value})}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             />
           </div>
           <div className="relative">
             <Lock className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-300" size={20} />
-            <input 
+            <input
               required
-              type="password" 
-              placeholder="Password" 
+              type="password"
+              placeholder="Password"
               className="w-full pl-14 pr-6 py-5 rounded-2xl border border-slate-200 focus:ring-4 focus:ring-indigo-50 focus:border-indigo-600 outline-none transition-all font-bold text-slate-700"
               value={formData.password}
-              onChange={(e) => setFormData({...formData, password: e.target.value})}
+              onChange={(e) => setFormData({ ...formData, password: e.target.value })}
             />
           </div>
 
@@ -90,7 +90,7 @@ const AuthPage: React.FC<AuthPageProps> = ({ onLogin, onBack }) => {
           </div>
         </div>
 
-        <button 
+        <button
           onClick={handleGuestLogin}
           className="w-full py-4 bg-slate-50 text-indigo-600 rounded-2xl font-black text-sm border-2 border-slate-100 hover:border-indigo-100 hover:bg-indigo-50 transition-all flex items-center justify-center gap-2 group"
         >
@@ -99,7 +99,7 @@ const AuthPage: React.FC<AuthPageProps> = ({ onLogin, onBack }) => {
         </button>
 
         <div className="mt-10 text-center">
-          <button 
+          <button
             onClick={() => setIsLogin(!isLogin)}
             className="text-slate-400 font-bold text-xs uppercase tracking-widest hover:text-indigo-600 transition-colors"
           >
