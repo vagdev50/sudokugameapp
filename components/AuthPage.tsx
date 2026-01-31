@@ -54,9 +54,6 @@ const AuthPage: React.FC<AuthPageProps> = ({ onLogin, onBack }) => {
     }
   };
 
-  const handleGuestLogin = () => {
-    onLogin({ name: 'Guest Master', email: 'guest@sudokuhub.live' });
-  };
 
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center p-4">
@@ -124,23 +121,6 @@ const AuthPage: React.FC<AuthPageProps> = ({ onLogin, onBack }) => {
             {loading ? <Loader2 className="animate-spin" size={24} /> : (isLogin ? 'LOGIN NOW' : 'CREATE ACCOUNT')}
           </button>
         </form>
-
-        <div className="relative my-10">
-          <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-slate-100"></div>
-          </div>
-          <div className="relative flex justify-center text-xs uppercase font-black tracking-widest">
-            <span className="bg-white px-4 text-slate-300">OR QUICK ACCESS</span>
-          </div>
-        </div>
-
-        <button
-          onClick={handleGuestLogin}
-          className="w-full py-4 bg-slate-50 text-indigo-600 rounded-2xl font-black text-sm border-2 border-slate-100 hover:border-indigo-100 hover:bg-indigo-50 transition-all flex items-center justify-center gap-2 group"
-        >
-          <Sparkles size={18} className="group-hover:animate-pulse" />
-          TRY AS GUEST (FREE)
-        </button>
 
         <div className="mt-10 text-center">
           <button

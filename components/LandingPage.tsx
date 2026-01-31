@@ -14,7 +14,7 @@ interface LandingPageProps {
 const FAQS = [
   { q: "How many levels are available?", a: `There are currently ${TOTAL_LEVELS} handcrafted levels ranging from Easy to Expert. We update our puzzles regularly to keep the challenge fresh.` },
   { q: "What can I do with my game credits?", a: "Credits can be used for strategic advantages like revealing a specific number (Hints) or purchasing extra time if the clock is running out on a difficult grid." },
-  { q: "Is the game free to play?", a: "Yes! You can start playing immediately as a guest. All new accounts receive 50 free credits to get started on their journey." },
+  { q: "Is the game free to play?", a: "Yes! You can register for free and start playing immediately. All new accounts receive 50 free credits to get started on their journey." },
   { q: "Can I play on multiple devices?", a: "If you create an account, your progress and credit balance are synced across all devices where you log in with your credentials." },
   { q: "How is my global score calculated?", a: "Your score is determined by the difficulty of the level, the time remaining on the clock, and the number of mistakes made during the session." }
 ];
