@@ -23,8 +23,21 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStart, onNavigate, onAdmin,
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeFaq, setActiveFaq] = useState<number | null>(0);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
+  const [adminClicks, setAdminClicks] = useState(0);
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+
+  const handleLogoClick = () => {
+    const newClicks = adminClicks + 1;
+    setAdminClicks(newClicks);
+    if (newClicks >= 6) {
+      onAdmin();
+      setAdminClicks(0);
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(() => setAdminClicks(0), 2000);
+    }
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -40,8 +53,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStart, onNavigate, onAdmin,
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
           <div
             className="flex items-center gap-2 cursor-pointer group"
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            onDoubleClick={onAdmin}
+            onClick={handleLogoClick}
           >
             <div className="bg-white p-0.5 rounded-lg text-white group-hover:scale-110 transition-transform shadow-sm overflow-hidden border border-slate-100 flex items-center justify-center">
               <img src="/favicon.png" alt="SudokuHub Logo" className="w-6 h-6 object-contain" />

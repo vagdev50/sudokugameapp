@@ -61,6 +61,7 @@ const App: React.FC = () => {
   const [lastSeenTimestamp, setLastSeenTimestamp] = useState<number>(0);
   const [settings, setSettings] = useState<GlobalSettings>(DEFAULT_SETTINGS);
   const [adminUsers, setAdminUsers] = useState<any[]>([]);
+  const [adminClicks, setAdminClicks] = useState(0);
 
   useEffect(() => {
     if (view === 'admin') {
@@ -574,10 +575,21 @@ const App: React.FC = () => {
           <div className="max-w-5xl mx-auto flex items-center justify-between">
             <div className="flex items-center gap-3">
               <button
-                onClick={() => setView('landing')}
-                onDoubleClick={() => setView('admin')}
+                onClick={() => {
+                  const newClicks = adminClicks + 1;
+                  setAdminClicks(newClicks);
+                  if (newClicks >= 6) {
+                    setView('admin');
+                    setAdminClicks(0);
+                  } else {
+                    // Normal click action
+                    setView('landing');
+                    // Reset clicks after 2 seconds of inactivity
+                    setTimeout(() => setAdminClicks(0), 2000);
+                  }
+                }}
                 className="bg-white p-0.5 rounded-xl text-white shadow-lg overflow-hidden flex items-center justify-center border border-slate-100"
-                title="Double click for Admin"
+                title="Logo"
               >
                 <img src="/favicon.png" alt="SudokuHub Logo" className="w-8 h-8 object-contain" />
               </button>
