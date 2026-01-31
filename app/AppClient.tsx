@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import {
   Timer, Heart, Trophy, ChevronRight, LayoutGrid, Pause, Play,
   RefreshCw, Hourglass, AlertCircle, Users, Star, Wallet, Plus, RotateCcw,
@@ -62,6 +62,7 @@ const App: React.FC = () => {
   const [settings, setSettings] = useState<GlobalSettings>(DEFAULT_SETTINGS);
   const [adminUsers, setAdminUsers] = useState<any[]>([]);
   const [adminClicks, setAdminClicks] = useState(0);
+  const adminTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     if (view === 'admin') {
@@ -576,16 +577,19 @@ const App: React.FC = () => {
             <div className="flex items-center gap-3">
               <button
                 onClick={() => {
+                  if (adminTimerRef.current) clearTimeout(adminTimerRef.current);
+
                   const newClicks = adminClicks + 1;
                   setAdminClicks(newClicks);
+
                   if (newClicks >= 6) {
                     setView('admin');
                     setAdminClicks(0);
                   } else {
-                    // Normal click action
                     setView('landing');
-                    // Reset clicks after 2 seconds of inactivity
-                    setTimeout(() => setAdminClicks(0), 2000);
+                    adminTimerRef.current = setTimeout(() => {
+                      setAdminClicks(0);
+                    }, 2000);
                   }
                 }}
                 className="bg-white p-0.5 rounded-xl text-white shadow-lg overflow-hidden flex items-center justify-center border border-slate-100"

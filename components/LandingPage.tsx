@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { LayoutGrid, CheckCircle, Star, ChevronDown, ShieldCheck, Zap, HelpCircle, Menu, X, Trophy, ChevronUp, Quote, Award, Brain, Rocket, Users2, Sparkles, Target, Mail, Phone, Facebook, Twitter, Instagram, Linkedin, CreditCard, ArrowRight } from 'lucide-react';
 import { TOTAL_LEVELS, TESTIMONIALS, CREDIT_PACKS } from '../constants';
 import { VisaIcon, MastercardIcon, PayPalIcon, MBWayIcon, MultibancoIcon } from './PaymentIcons';
@@ -24,18 +24,24 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStart, onNavigate, onAdmin,
   const [activeFaq, setActiveFaq] = useState<number | null>(0);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [adminClicks, setAdminClicks] = useState(0);
+  const adminTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   const handleLogoClick = () => {
+    if (adminTimerRef.current) clearTimeout(adminTimerRef.current);
+
     const newClicks = adminClicks + 1;
     setAdminClicks(newClicks);
+
     if (newClicks >= 6) {
       onAdmin();
       setAdminClicks(0);
     } else {
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      setTimeout(() => setAdminClicks(0), 2000);
+      adminTimerRef.current = setTimeout(() => {
+        setAdminClicks(0);
+      }, 2000);
     }
   };
 
