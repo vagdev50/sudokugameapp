@@ -561,7 +561,7 @@ const App: React.FC = () => {
               setAdminUsers(prev => prev.map(u => u.id === id ? { ...u, ...updates } : u));
             }
           }}
-          onBack={() => setView('game')}
+          onBack={() => setView(state ? 'game' : 'landing')}
         />
       );
     }
