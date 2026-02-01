@@ -245,13 +245,32 @@ const App: React.FC = () => {
         .limit(100);
 
       if (data) {
-        const entries: LeaderboardEntry[] = data.map(p => ({
+        const realEntries: LeaderboardEntry[] = data.map(p => ({
           name: p.name || 'Anonymous',
           score: p.total_score || 0,
           levels: p.levels_completed?.[0]?.count || 0,
           isCurrentUser: userProfile?.name === p.name
         }));
-        setLeaderboardEntries(entries);
+
+        // Mock players for Flippa Demo
+        const demoPlayers: LeaderboardEntry[] = [
+          { name: "SudokuMaster_99", score: 12450, levels: 42 },
+          { name: "Pro_Gamer_PT", score: 10800, levels: 35 },
+          { name: "LogicKing", score: 9200, levels: 31 },
+          { name: "BrainTrain2026", score: 8500, levels: 28 },
+          { name: "SmartPuzzles", score: 7100, levels: 22 },
+          { name: "DailyPlayer", score: 6400, levels: 19 },
+          { name: "MindBender", score: 5800, levels: 15 },
+          { name: "FastSolver", score: 4200, levels: 12 },
+          { name: "EasyPeasy", score: 3100, levels: 8 },
+          { name: "Newbie_101", score: 1500, levels: 4 },
+        ];
+
+        const combinedEntries = [...realEntries, ...demoPlayers]
+          .sort((a, b) => b.score - a.score)
+          .slice(0, 100);
+
+        setLeaderboardEntries(combinedEntries);
       }
     };
     fetchLeaderboard();

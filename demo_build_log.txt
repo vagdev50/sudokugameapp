@@ -1,0 +1,29 @@
+
+> sudokuhub-live@0.0.0 build
+> next build
+
+   Ôû▓ Next.js 15.5.10
+   - Environments: .env.local
+
+   Creating an optimized production build ...
+ Ô£ô (pwa) Compiling for server...
+ Ô£ô (pwa) Compiling for server...
+ Ô£ô (pwa) Compiling for client (static)...
+ Ôùï (pwa) Service worker: C:\Users\joaop\.gemini\antigravity\scratch\sudoku-master-pro-copy\public\sw.js
+ Ôùï (pwa)   URL: /sw.js
+ Ôùï (pwa)   Scope: /
+ Ô£ô Compiled successfully in 4.3s
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/4) ...
+Could not find files for /_error in .next/build-manifest.json
+Could not find files for /_error in .next/build-manifest.json
+Could not find files for /_error in .next/build-manifest.json
+Could not find files for /_error in .next/build-manifest.json
+TypeError: a[d] is not a function
+    at Object.c [as require] (C:\Users\joaop\.gemini\antigravity\scratch\sudoku-master-pro-copy\.next\server\webpack-runtime.js:1:127)
+Error occurred prerendering page "/". Read more: https://nextjs.org/docs/messages/prerender-error
+TypeError: a[d] is not a function
+    at Object.c [as require] (C:\Users\joaop\.gemini\antigravity\scratch\sudoku-master-pro-copy\.next\server\webpack-runtime.js:1:127)
+Export encountered an error on /page: /, exiting the build.
+ Ô¿» Next.js build worker exited with code: 1 and signal: null

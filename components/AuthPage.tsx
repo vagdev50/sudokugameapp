@@ -54,6 +54,9 @@ const AuthPage: React.FC<AuthPageProps> = ({ onLogin, onBack }) => {
     }
   };
 
+  const handleGuestLogin = () => {
+    onLogin({ name: 'Flippa Guest', email: 'guest@sudokuhub.live' });
+  };
 
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center p-4">
@@ -122,10 +125,27 @@ const AuthPage: React.FC<AuthPageProps> = ({ onLogin, onBack }) => {
           </button>
         </form>
 
+        <div className="relative my-10">
+          <div className="absolute inset-0 flex items-center">
+            <div className="w-full border-t border-slate-100"></div>
+          </div>
+          <div className="relative flex justify-center text-xs uppercase font-black tracking-widest">
+            <span className="bg-white px-4 text-slate-300">OR QUICK ACCESS</span>
+          </div>
+        </div>
+
+        <button
+          onClick={handleGuestLogin}
+          className="w-full py-4 bg-slate-50 text-indigo-600 rounded-2xl font-black text-sm border-2 border-slate-100 hover:border-indigo-100 hover:bg-indigo-50 transition-all flex items-center justify-center gap-2 group"
+        >
+          <Sparkles size={18} className="group-hover:animate-pulse" />
+          TEST AS GUEST (FLIPPA DEMO)
+        </button>
+
         <div className="mt-10 text-center">
           <button
             onClick={() => setIsLogin(!isLogin)}
-            className="text-slate-400 font-bold text-xs uppercase tracking-widest hover:text-indigo-600 transition-colors"
+            className="text-slate-400 font-black text-[10px] uppercase tracking-widest hover:text-indigo-600 transition-colors"
           >
             {isLogin ? "Don't have an account? Sign up" : 'Already have an account? Login'}
           </button>
