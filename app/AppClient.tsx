@@ -38,7 +38,11 @@ const DEFAULT_SETTINGS: GlobalSettings = {
   primaryColor: '#4f46e5',
   pointsPerLevel: 100,
   timeBonusMultiplier: 2.0,
-  mistakePenalty: 50
+  mistakePenalty: 50,
+  stripePublicKey: '',
+  stripeSecretKey: '',
+  paypalClientId: '',
+  paypalSecretKey: ''
 };
 
 const App: React.FC = () => {

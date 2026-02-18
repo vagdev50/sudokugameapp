@@ -10,6 +10,10 @@ export interface GlobalSettings {
   pointsPerLevel: number;
   timeBonusMultiplier: number;
   mistakePenalty: number;
+  stripePublicKey?: string;
+  stripeSecretKey?: string;
+  paypalClientId?: string;
+  paypalSecretKey?: string;
 }
 
 export interface CreditPack {

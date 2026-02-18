@@ -20,8 +20,10 @@ import {
     Trophy,
     RotateCcw,
     CheckCircle,
-    Zap
+    Zap,
+    CreditCard
 } from 'lucide-react';
+
 import {
     BarChart,
     Bar,
@@ -418,7 +420,78 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ users, settings, onUpda
                 </div>
             </div>
 
+            {/* Payment Configuration */}
+            <div className="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm space-y-8">
+                <div className="flex items-center gap-3 text-indigo-600 mb-2">
+                    <CreditCard size={24} />
+                    <h3 className="font-black uppercase tracking-tight">Payment Gateways</h3>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-12">
+                    {/* Stripe Configuration */}
+                    <div className="space-y-6">
+                        <div className="flex items-center gap-2 mb-4">
+                            <div className="w-8 h-8 bg-indigo-50 rounded-lg flex items-center justify-center text-indigo-600 font-black text-xs">S</div>
+                            <h4 className="font-black text-slate-800 text-sm uppercase tracking-tight">Stripe Configuration</h4>
+                        </div>
+                        <div className="space-y-4">
+                            <div className="space-y-1.5">
+                                <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-1">Public Key</label>
+                                <input
+                                    type="text"
+                                    placeholder="pk_test_..."
+                                    className="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-indigo-600 outline-none font-mono text-xs text-slate-600"
+                                    value={localSettings.stripePublicKey || ''}
+                                    onChange={(e) => setLocalSettings({ ...localSettings, stripePublicKey: e.target.value })}
+                                />
+                            </div>
+                            <div className="space-y-1.5">
+                                <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-1">Secret Key</label>
+                                <input
+                                    type="password"
+                                    placeholder="sk_test_..."
+                                    className="w-full px-4 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-indigo-600 outline-none font-mono text-xs text-slate-600"
+                                    value={localSettings.stripeSecretKey || ''}
+                                    onChange={(e) => setLocalSettings({ ...localSettings, stripeSecretKey: e.target.value })}
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* PayPal Configuration */}
+                    <div className="space-y-6">
+                        <div className="flex items-center gap-2 mb-4">
+                            <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center text-blue-600 font-black text-xs">P</div>
+                            <h4 className="font-black text-slate-800 text-sm uppercase tracking-tight">PayPal Configuration</h4>
+                        </div>
+                        <div className="space-y-4">
+                            <div className="space-y-1.5">
+                                <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-1">Client ID</label>
+                                <input
+                                    type="text"
+                                    placeholder="AcA..."
+                                    className="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-blue-600 outline-none font-mono text-xs text-slate-600"
+                                    value={localSettings.paypalClientId || ''}
+                                    onChange={(e) => setLocalSettings({ ...localSettings, paypalClientId: e.target.value })}
+                                />
+                            </div>
+                            <div className="space-y-1.5">
+                                <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-1">Secret Key</label>
+                                <input
+                                    type="password"
+                                    placeholder="E..."
+                                    className="w-full px-4 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-blue-600 outline-none font-mono text-xs text-slate-600"
+                                    value={localSettings.paypalSecretKey || ''}
+                                    onChange={(e) => setLocalSettings({ ...localSettings, paypalSecretKey: e.target.value })}
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div className="bg-rose-50 p-6 rounded-[2rem] border border-rose-100 flex items-start gap-4">
+
                 <div className="p-3 bg-white rounded-2xl text-rose-500 shadow-sm">
                     <AlertTriangle size={20} />
                 </div>
